@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export default function QuestItem({ props }) {
+export default function QuestItem(props) {
     const [title, setTitle] = useState(props.quest.title);
     const [checked, setChecked] = useState(false);
     const [editMode, setEditMode] = useState(false);
@@ -28,7 +28,7 @@ export default function QuestItem({ props }) {
                         placeholder="quest"
                         defaultValue={title}
                         onChange={(e) => setTitle(e.target.value)}
-                        className="rounded-full bg-secundary pl-2 w-full input-sm flex focus:outline-none"
+                        className="rounded-full bg-secondary pl-2 w-full input-sm flex focus:outline-none"
                     />
                 ) : (
                     <p className={`break-words ${concluded ? "line-through" : ""}`}>
