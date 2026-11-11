@@ -58,6 +58,15 @@ function App() {
     getQuests();
   }
 
+  function saveDeleteQuest(quest) {
+    let auxQuests = quests;
+
+    const filterAuxQuests = auxQuests.filter((auxQuest) => auxQuest.id !== quest.id);
+
+    localStorage.setItem("quests", JSON.stringify(filterAuxQuests));
+    getQuests();
+  }
+
   function getQuests() {
     setQuests(JSON.parse(window.localStorage.getItem("quests"))); 
   }
@@ -79,7 +88,9 @@ function App() {
 
         <div className="flex flex-col gap-4 w-full items-center">
           <h2>Concluídas</h2>
-          <QuestList quests={concludedQuests} saveEditQuest={saveEditQuest} saveConcludedQuest={saveConcludedQuest}/>
+          <QuestList quests={concludedQuests} saveEditQuest={saveEditQuest} saveConcludedQuest={saveConcludedQuest}
+          saveDeleteQuest={saveDeleteQuest}
+          />
         </div>
 
         </div>
